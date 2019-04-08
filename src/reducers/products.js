@@ -3,7 +3,7 @@ var initialState = [
     {
         id: 1,
         name: 'Iphone 7 Plus',
-        image: '',
+        image: 'http://localhost:3000/img/products/iphone.jpeg',
         description: 'Sản phẩm do Apple sản xuất',
         price: 700,
         inventory: 10
@@ -11,7 +11,7 @@ var initialState = [
     {
         id: 2,
         name: 'Iphone 8 Plus',
-        image: '',
+        image: 'http://localhost:3000/img/products/iphone.jpeg',
         description: 'Sản phẩm do Apple sản xuất',
         price: 800,
         inventory: 5
@@ -19,15 +19,15 @@ var initialState = [
     {
         id: 3,
         name: 'Iphone 9 Plus',
-        image: '',
+        image: 'http://localhost:3000/img/products/iphone.jpeg',
         description: 'Sản phẩm do Apple sản xuất',
         price: 900,
         inventory: 20
     }
 ];
-var product = (state = initialState, action) => {
+var products = (state = initialState, action) => {
     switch(action.type) {
         default: return state;
     }
 };
-export default product;
+export default products;
