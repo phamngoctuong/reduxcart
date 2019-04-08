@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import Products from './../reducers/products';
+import Products from './../components/Products';
+import Product from './../components/Product';
 class ProductsContainer extends Component {
+    showProducts = (products) => {
+        var result = null;
+        if(products.length > 0) {
+            result = products.map((product, index)=>{
+                return(
+                    <Product key={product.id} product={product} index={index + 1}></Product>
+                );
+            });
+        }
+        return result;
+    };
     render() {
         var {products} = this.props;
         return (
-           <Products products={products}></Products>
+           <Products>
+                {this.showProducts(products)}
+           </Products>
         );
     }
 }
