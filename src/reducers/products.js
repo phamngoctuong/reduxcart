@@ -6,7 +6,8 @@ var initialState = [
         image: 'http://localhost:3000/img/products/iphone.jpeg',
         description: 'Sản phẩm do Apple sản xuất',
         price: 700,
-        inventory: 10
+        inventory: 10,
+        rating: 4
     },
     {
         id: 2,
@@ -14,7 +15,8 @@ var initialState = [
         image: 'http://localhost:3000/img/products/iphone.jpeg',
         description: 'Sản phẩm do Apple sản xuất',
         price: 800,
-        inventory: 5
+        inventory: 5,
+        rating: 3
     },
     {
         id: 3,
@@ -22,7 +24,8 @@ var initialState = [
         image: 'http://localhost:3000/img/products/iphone.jpeg',
         description: 'Sản phẩm do Apple sản xuất',
         price: 900,
-        inventory: 20
+        inventory: 20,
+        rating: 2
     }
 ];
 var products = (state = initialState, action) => {
