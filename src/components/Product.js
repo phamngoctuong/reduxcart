@@ -29,7 +29,7 @@ class Product extends Component {
                             </strong>
                         </h4>
                         <ul className="rating">
-                            {this.showRatings(3)}
+                            {this.showRatings(product.rating)}
                         </ul>
                         <p className="card-text">{product.description}</p>
                         <div className="card-footer">
