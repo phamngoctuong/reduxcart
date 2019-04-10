@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionType';
-// var data = JSON.parse(localStorage.getItem('CART'));
-var data = [
+var data = JSON.parse(localStorage.getItem('CART'));
+var initialState = [
     {
         product: {
             id: 1,
@@ -27,10 +27,32 @@ var data = [
     }
 ];
 var initialState = data ? data : [];
+var findProductInCart = (cart,product) => {
+    var index = -1;
+    if(cart.length > 0) {
+        for(var i = 0; i < cart.length; i++) {
+            if(cart[i].product.id === product.id) {
+                index = i;
+                break;
+            }
+        }
+    }
+    return index;
+};
 var cart = (state = initialState, action) => {
+    var {product, quantity} = action;
     switch (action.type) {
         case types.ADD_TO_CART:
-            console.log(action);
+            var index = findProductInCart(state,product);
+            if(index !==-1) {
+                state[index].quantity += quantity;
+            }else {
+                state.push({
+                    product,
+                    quantity
+                });
+            }
+            localStorage.setItem('CART',JSON.stringify(state));
             return [...state];
             break;
         default:
