@@ -20,7 +20,6 @@ class Cart extends Component {
                         </thead>
                         <tbody>
                             {children}
-                            <CartResult></CartResult>
                         </tbody>
                     </table>
                 </div>

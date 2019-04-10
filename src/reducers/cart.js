@@ -12,13 +12,24 @@ var data = [
             rating: 1
         },
         quantity: 5
+    },
+    {
+        product: {
+            id: 3,
+            name: 'Iphone 9 Plus',
+            image: 'http://localhost:3000/img/products/iphone.jpeg',
+            description: 'Sản phẩm do Apple sản xuất',
+            price: 900,
+            inventory: 5,
+            rating: 1
+        },
+        quantity: 5
     }
 ];
 var initialState = data ? data : [];
 var cart = (state = initialState, action) => {
     switch (action.type) {
         case types.ADD_TO_CART:
-            console.log(action);
             return [...state];
             break;
         default:
