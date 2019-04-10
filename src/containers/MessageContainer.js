@@ -10,7 +10,7 @@ class MessageContainer extends Component {
         );
     }
 }
-mapStateToProps.propTypes = {
+MessageContainer.propTypes = {
     message: PropTypes.string.isRequired
 };
 var mapStateToProps = (state) => {
