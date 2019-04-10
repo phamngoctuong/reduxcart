@@ -4,10 +4,10 @@ var initialState = Message.MSG_WELCOM;
 var message = (state = initialState, action) => {
     switch (action.type) {
         case types.CHANGE_MESSAGE:
-            return [...state];
+            return action.message;
             break;
         default:
-            return [...state];
+            return state;
             break;
     }
 };

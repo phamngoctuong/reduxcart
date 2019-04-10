@@ -6,7 +6,7 @@ class MessageContainer extends Component {
     render() {
         var {message} = this.props;
         return (
-            <Message message={message}></Message>
+            <Message message = {message}></Message>
         );
     }
 }

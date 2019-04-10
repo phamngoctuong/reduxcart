@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-class App extends Component {
+class Message extends Component {
     render() {
         var {message} = this.props;
         return (
@@ -9,4 +9,4 @@ class App extends Component {
         );
     }
 }
-export default App;
+export default Message;
