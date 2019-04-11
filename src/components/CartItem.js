@@ -13,21 +13,23 @@ class CartItem extends Component {
 		return price * quantity;
 	}
 	onDelete = (product) => {
-		this.props.onDeleteProductInCart(product);
-		this.props.onChangeMessage(Message.MSG_DELETE_PRODUCT_IN_CART_SUCCES);
+		var {onDeleteProductInCart, onChangeMessage} = this.props;
+		onDeleteProductInCart(product);
+		onChangeMessage(Message.MSG_DELETE_PRODUCT_IN_CART_SUCCES);
 	}
 	onUpdateQuantity = (product, quantity) => {
+		var {onUpdateProductInCart, onChangeMessage} = this.props;
 		if(quantity > 0) {
 			this.setState({
 				quantity: quantity
 			});
 		};
-		this.props.onUpdateProductInCart(product, quantity);
+		onUpdateProductInCart(product, quantity);
+		onChangeMessage(Message.MSG_UDDATE_TO_CART_SUCCES);
 	}
   	render() {
 	var {item} = this.props;
 	var {quantity} = item.quantity > 0 ? item : this.state;
-	console.log(quantity);
     return (
         <tr>
 			<th scope="row">
