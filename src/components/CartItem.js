@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import * as Message from './../constants/Message';
 class CartItem extends Component {
 	showSubtotal = (price, quantity) => {
 		return price * quantity;
 	}
 	onDelete = (product) => {
 		this.props.onDeleteProductInCart(product);
+		this.props.onChangeMessage(Message.MSG_DELETE_PRODUCT_IN_CART_SUCCES);
 	}
   	render() {
 	var {item} = this.props;
