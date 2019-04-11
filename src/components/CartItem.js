@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import * as Message from './../constants/Message';
+import {connect} from 'react-redux';
+import {actUpdateQuantity} from './../actions/index';
 class CartItem extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			quantity: 1
+		}
+	};
 	showSubtotal = (price, quantity) => {
 		return price * quantity;
 	}
@@ -25,10 +33,16 @@ class CartItem extends Component {
 			<td className="center-on-small-only">
 			    <span className="qty">{item.quantity}</span>
 			    <div className="btn-group radio-group" data-toggle="buttons">
-			        <label className="btn btn-sm btn-primary btn-rounded waves-effect waves-light">
+					<label 
+						className="btn btn-sm btn-primary btn-rounded waves-effect waves-light"
+						onClick = {() => this.onUpdateQuantity(item.product, item.quantity -1)}
+					>
 			            <a>—</a>
 			        </label>
-			        <label className="btn btn-sm btn-primary btn-rounded waves-effect waves-light">
+					<label 
+						className="btn btn-sm btn-primary btn-rounded waves-effect waves-light"
+						onClick = {() => this.onUpdateQuantity(item.product, item.quantity -1)}
+					>
 			            <a>+</a>
 			        </label>
 			    </div>
@@ -51,4 +65,11 @@ class CartItem extends Component {
     );
   }
 }
-export default CartItem;
+var mapDispatchToProps = (dispatch, props) => {
+	return {
+		onUpdateQuantity:(product,quantity) => {
+			dispatch(actUpdateQuantity(product,quantity));
+		}
+	}
+}
+export default connect(null,mapDispatchToProps)(CartItem);

@@ -18,3 +18,10 @@ export const actRemoveProductInCart = (product) => {
         product
     }
 }
+export const actUpdateQuantity = (product,quantity) => {
+    return {
+        type: types.UPDATE_PRODUCT_IN_CART,
+        product,
+        quantity
+    }
+}
