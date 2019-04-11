@@ -3,12 +3,6 @@ import * as Message from './../constants/Message';
 import {connect} from 'react-redux';
 import {actUpdateQuantity} from './../actions/index';
 class CartItem extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			quantity: 1
-		}
-	};
 	showSubtotal = (price, quantity) => {
 		return price * quantity;
 	}
@@ -19,11 +13,6 @@ class CartItem extends Component {
 	}
 	onUpdateQuantity = (product, quantity) => {
 		var {onUpdateProductInCart, onChangeMessage} = this.props;
-		if(quantity > 0) {
-			this.setState({
-				quantity: quantity
-			});
-		};
 		onUpdateProductInCart(product, quantity);
 		onChangeMessage(Message.MSG_UDDATE_TO_CART_SUCCES);
 	}
@@ -77,11 +66,4 @@ class CartItem extends Component {
     );
   }
 }
-var mapDispatchToProps = (dispatch, props) => {
-	return {
-		onUpdateQuantity:(product,quantity) => {
-			dispatch(actUpdateQuantity(product,quantity));
-		}
-	}
-}
-export default connect(null,mapDispatchToProps)(CartItem);
+export default CartItem;
