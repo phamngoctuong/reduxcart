@@ -12,3 +12,9 @@ export const actChangeMessage = (message) => {
         message
     }
 }
+export const actRemoveProductInCart = (product) => {
+    return {
+        type: types.DELETE_PRODUCT_IN_CART,
+        product
+    }
+}
