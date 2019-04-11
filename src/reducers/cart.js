@@ -66,11 +66,8 @@ var cart = (state = initialState, action) => {
             break;
         case types.UPDATE_PRODUCT_IN_CART:
             index = findProductInCart(state,product);
-            if(index !==-1) {
-                state[index] = {
-                    ...state[index],
-                    quantity: action.quantity
-                }
+            if(index !==-1 && quantity >0) {
+                state[index].quantity = quantity 
             }
             localStorage.setItem('CART',JSON.stringify(state));
             return [...state];
